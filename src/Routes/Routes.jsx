@@ -3,6 +3,7 @@ import About from "../Components/Pages/About/About";
 import AllWorks from "../Components/Pages/AllWorks/AllWorks";
 import Contact from "../Components/Pages/Contact/Contact";
 import Home from "../Components/Pages/Home/Home";
+import NewPost from "../Components/Pages/Posts/NewPost";
 import Posts from "../Components/Pages/Posts/Posts";
 import Main from "../Layout/Main";
 
@@ -34,6 +35,10 @@ const route = createBrowserRouter([
       {
         path: "/posts",
         element: <Posts />,
+      },
+      {
+        path: "/newpost",
+        element: <NewPost />,
       },
     ],
   },
