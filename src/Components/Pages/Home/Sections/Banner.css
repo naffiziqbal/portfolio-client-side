@@ -1,0 +1,23 @@
+.social_icons {
+  border: none;
+  padding: 1.2rem;
+  margin-left: 1rem;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.fa-brands {
+  font-size: 1.3rem;
+}
+.fa-brands:hover {
+    transition: 1.3s ease;
+    border: none;
+    box-shadow: 1px 1px 20px 3px #BA68C8;
+    -webkit-transition: 1.3s ease;
+    -moz-transition: 1.3s ease;
+    -ms-transition: 1.3s ease;
+    -o-transition: 1.3s ease;
+}
