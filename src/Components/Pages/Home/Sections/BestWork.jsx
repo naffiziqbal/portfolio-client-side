@@ -37,7 +37,7 @@ const BestWork = () => {
         {" "}
         {data.map((data) => (
           <SwiperSlide>
-            <div key={data.id} className="card  bg-base-100 shadow-xl">
+            <div key={data._id} className="card  bg-base-100 shadow-xl">
               <figure>
                 <PhotoProvider>
                   <PhotoView src={data.Img}>

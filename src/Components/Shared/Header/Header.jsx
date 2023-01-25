@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
+  const [user, setUser] = useState([]);
+  // useEffect(() => {
+  //   fetch(`http://localhost:5000/user`)
+  //     .then((res) => res.json())
+  //     .then((data) => setUser(data));
+  // }, []);
+  console.log(user);
   const menuItems = {
     menuites: (
       <>
@@ -26,6 +34,15 @@ const Header = () => {
           >
             Download Resume
           </a>
+        </li>
+        <li>
+          {" "}
+          <p>
+            Welcome{" "}
+            <p className="text-blue-500">
+              {user.user === "Nafiz Iqbal" ? user.user : "Visitor"}
+            </p>{" "}
+          </p>
         </li>
       </>
     ),

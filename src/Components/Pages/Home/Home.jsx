@@ -8,6 +8,7 @@ import Skills from "./Sections/Skills";
 const Home = () => {
   // const
   return (
+    <>
     <div className="">
       <Banners />
       <About/>
@@ -15,6 +16,7 @@ const Home = () => {
       <BestWork />
       <Contact/>
     </div>
+    </>
   );
 };
 
