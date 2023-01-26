@@ -7,7 +7,7 @@ import Post from "./Post";
 const Posts = () => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/posts`)
+    fetch(`https://portfolio-server-side-steel.vercel.app/posts`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data.slice(0, 10));

@@ -13,7 +13,7 @@ const NewPost = () => {
     const body = form.body.value;
     const postData = { body, headline };
 
-    fetch("http://localhost:5000/post", {
+    fetch("https://portfolio-server-side-steel.vercel.app/post", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -44,7 +44,7 @@ const NewPost = () => {
     console.log(name);
   };
   useEffect(() => {
-    fetch("http://localhost:5000/user")
+    fetch("https://portfolio-server-side-steel.vercel.app/user")
       .then((res) => res.json())
       .then((data) => setUser(data));
   }, []);

@@ -6,7 +6,7 @@ import "./Header.css";
 const Header = () => {
   const [user, setUser] = useState([]);
   // useEffect(() => {
-  //   fetch(`http://localhost:5000/user`)
+  //   fetch(`https://portfolio-server-side-steel.vercel.app/user`)
   //     .then((res) => res.json())
   //     .then((data) => setUser(data));
   // }, []);
