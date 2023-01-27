@@ -1,16 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Context/UserContext";
 import "./Header.css";
 
 const Header = () => {
-  const [user, setUser] = useState([]);
-  // useEffect(() => {
-  //   fetch(`https://portfolio-server-side-steel.vercel.app/user`)
-  //     .then((res) => res.json())
-  //     .then((data) => setUser(data));
-  // }, []);
-  // console.log(user);
+  const { user } = useContext(AuthContext);
+  console.log(user);
   const menuItems = {
     menuites: (
       <>
@@ -37,12 +33,16 @@ const Header = () => {
         </li>
         <li>
           {" "}
-          <p>
-            Welcome{" "}
-            <p className="text-blue-500">
-              {user.user === "Nafiz Iqbal" ? user.user : "Visitor"}
-            </p>{" "}
-          </p>
+          {user ? (
+            <Link>
+              Welcome{" "}
+              <span className="text-blue-500">
+                {user ? user.email : "Visitor"}
+              </span>
+            </Link>
+          ) : (
+            <Link to={"/login"}></Link>
+          )}
         </li>
       </>
     ),

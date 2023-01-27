@@ -6,6 +6,8 @@ import Home from "../Components/Pages/Home/Home";
 import NewPost from "../Components/Pages/Posts/NewPost";
 import PostDetails from "../Components/Pages/Posts/PostDetails";
 import Posts from "../Components/Pages/Posts/Posts";
+import Login from "../Components/UserCredintial/Login";
+import SignUp from "../Components/UserCredintial/SignUp";
 import Main from "../Layout/Main";
 
 const route = createBrowserRouter([
@@ -41,11 +43,19 @@ const route = createBrowserRouter([
         path: "/post/:id",
         element: <PostDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/post/${params.id}`),
+          fetch(`https://portfolio-server-side-steel.vercel.app/post/${params.id}`),
       },
       {
         path: "/newpost",
         element: <NewPost />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/signup",
+        element: <SignUp />,
       },
     ],
   },

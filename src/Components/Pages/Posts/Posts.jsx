@@ -6,6 +6,7 @@ import Post from "./Post";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
+
   useEffect(() => {
     fetch(`https://portfolio-server-side-steel.vercel.app/posts`)
       .then((res) => res.json())
@@ -13,7 +14,7 @@ const Posts = () => {
         // console.log(data.slice(0, 10));
         setPosts(data.slice(0, 10));
       });
-  }, []);
+  }, [posts]);
   return (
     <div className="mx-auto container">
       <div>
