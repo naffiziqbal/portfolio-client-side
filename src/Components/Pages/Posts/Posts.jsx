@@ -10,7 +10,7 @@ const Posts = () => {
     fetch(`https://portfolio-server-side-steel.vercel.app/posts`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.slice(0, 10));
+        // console.log(data.slice(0, 10));
         setPosts(data.slice(0, 10));
       });
   }, []);

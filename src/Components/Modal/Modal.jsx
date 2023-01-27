@@ -5,7 +5,7 @@ const Modal = () => {
         e.preventDefault();
         const form = e.target;
         const name  = form.name.value;
-        console.log(name)
+        // console.log(name)
     }
   return (
     <div className="w-">

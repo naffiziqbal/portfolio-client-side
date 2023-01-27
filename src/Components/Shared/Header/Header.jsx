@@ -10,7 +10,7 @@ const Header = () => {
   //     .then((res) => res.json())
   //     .then((data) => setUser(data));
   // }, []);
-  console.log(user);
+  // console.log(user);
   const menuItems = {
     menuites: (
       <>

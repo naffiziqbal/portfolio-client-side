@@ -31,9 +31,9 @@ const NewPost = () => {
             timer: 1500,
           });
         }
-        console.log(data);
+        // console.log(data);
       });
-    console.log(postData);
+    // console.log(postData);
   };
 
   const handleForm = (e) => {
@@ -41,7 +41,7 @@ const NewPost = () => {
     const form = e.target;
     const name = form.name.value;
     setName(name);
-    console.log(name);
+    // console.log(name);
   };
   useEffect(() => {
     fetch("https://portfolio-server-side-steel.vercel.app/user")

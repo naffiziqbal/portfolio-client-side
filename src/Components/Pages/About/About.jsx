@@ -24,7 +24,7 @@ const About = () => {
                   `Hello, I'm ${name}. A Bangladeshi Based Front-End Web Developer. I Develope Websites Using MERN  technology. My Dream is To make the virtual world more smoother.`
                 )
                 .callFunction(() => {
-                  console.log("String typed out!");
+                  // console.log("String typed out!");
                 })
                 .pauseFor(2500)
                 .start();
