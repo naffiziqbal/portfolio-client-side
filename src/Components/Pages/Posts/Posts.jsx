@@ -16,7 +16,6 @@ const Posts = () => {
   }, []);
   return (
     <div className="mx-auto container">
-      <p className="text-3xl "> This Is All Post Page </p>
       <div>
         <p className="text-blue-500 underline">
           <Link to={"/newpost"}>Make a Post</Link>
