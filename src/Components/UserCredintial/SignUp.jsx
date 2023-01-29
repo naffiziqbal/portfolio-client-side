@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Context/UserContext";
 
 const SignUp = () => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
   const { createUser, loading } = useContext(AuthContext);
 
   const handleCreateUser = (e) => {
@@ -20,8 +20,12 @@ const SignUp = () => {
         title: "Congrats",
         text: "User Logged in",
       });
-      navigate('/')
+      navigate("/");
     });
+  };
+  let activeStyle = {
+    textDecoration: "underline",
+    color: "#d550ed",
   };
   return (
     <div>
@@ -31,13 +35,27 @@ const SignUp = () => {
             <header className="p-3">
               <div className="flex w-full">
                 <div className="grid h-8 flex-grow card rounded-box place-items-center">
-                  <Link to={"/signup"}>Sign Up</Link>
+                  <NavLink
+                    style={({ isActive }) => 
+                      isActive ? activeStyle : undefined
+                    }
+                    to="/signup"
+                  >
+                    Sign Up
+                  </NavLink>
                 </div>
                 <div className="divider divider-horizontal text-primary">
                   ||
                 </div>
                 <div className="grid h-8 flex-grow rounded-box place-items-center">
-                  <Link to={"/login"}> Log in</Link>
+                  <NavLink
+                    to="/login"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : undefined
+                    }
+                  >
+                    Log In
+                  </NavLink>
                 </div>
               </div>
               <hr className="border-primary" />

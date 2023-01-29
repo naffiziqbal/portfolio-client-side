@@ -3,10 +3,24 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Context/UserContext";
 import "./Header.css";
+import {
+  ArrowRightCircleIcon,
+  ArrowRightOnRectangleIcon,
+} from "@heroicons/react/24/solid";
+import Swal from "sweetalert2";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
-  console.log(user);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut().then(() => {
+      Swal.fire({
+        icon: "success",
+        text: "Log Out Successfull",
+      });
+    });
+  };
+  // console.log(user);
   const menuItems = {
     menuites: (
       <>
@@ -14,7 +28,7 @@ const Header = () => {
           <Link to={"/"}>Home</Link>
         </li>
         <li>
-          <a href="/home/#contact">Contact</a>
+          <a href="/contact">Contact</a>
         </li>
         <li>
           <Link to={"/allworks"}>All works</Link>
@@ -23,16 +37,6 @@ const Header = () => {
           <Link to={"/posts"}>Posts</Link>
         </li>
         <li>
-          <a
-            target={"_blank"}
-            href="https://drive.google.com/file/d/13iYznwmR6BoSOJJDa-Z8EDsH7SJpOpbC/view?usp=share_link"
-            className="text-primary"
-          >
-            Download Resume
-          </a>
-        </li>
-        <li>
-          {" "}
           {user ? (
             <Link>
               Welcome{" "}
@@ -41,9 +45,24 @@ const Header = () => {
               </span>
             </Link>
           ) : (
-            <Link to={"/login"}></Link>
+            <Link to={"/login"}>
+              <p>
+                Welcome
+                <span className="text-blue-500"> Visitor</span>
+              </p>
+            </Link>
           )}
         </li>
+        {user ? (
+          <li>
+            <ArrowRightOnRectangleIcon
+              className="w-16 text-blue-400"
+              onClick={handleLogOut}
+            />
+          </li>
+        ) : (
+          ""
+        )}
       </>
     ),
   };

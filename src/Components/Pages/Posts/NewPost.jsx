@@ -1,17 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../../Context/UserContext";
 
 const NewPost = () => {
-  const [user, setUser] = useState([]);
-  const [name, setName] = useState([]);
+  const navigate = useNavigate()
+  const { user } = useContext(AuthContext);
+
+  function handleKeyDown(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      const value = event.target.body.value;
+      setValue(value + "\n");
+    }
+  }
+
   const handlePost = (e) => {
     e.preventDefault();
     const form = e.target;
     const headline = form.headline.value;
     const body = form.body.value;
+  
     const postData = { body, headline };
+    console.log(postData);
 
     fetch("https://portfolio-server-side-steel.vercel.app/post", {
       method: "POST",
@@ -30,41 +43,18 @@ const NewPost = () => {
             showConfirmButton: false,
             timer: 1500,
           });
+          form.reset();
+          navigate('/posts')
         }
-        // console.log(data);
       });
-    // console.log(postData);
+
   };
 
-  const handleForm = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const name = form.name.value;
-    setName(name);
-    // console.log(name);
-  };
-  useEffect(() => {
-    fetch("https://portfolio-server-side-steel.vercel.app/user")
-      .then((res) => res.json())
-      .then((data) => setUser(data));
-  }, []);
+
   return (
     <div className="mx-auto container">
-      <div className="w-">
-        <p className="text-blue-500">What Is Your Secret Code?</p>
-        <form onSubmit={handleForm}>
-          <input
-            type="text"
-            placeholder="You Can't Break The Code........."
-            name="name"
-            className=" mx-3 input input-bordered input-secondary w-full max-w-xs"
-            onKeyUp={handleForm}
-          />
-          <input type="submit" className="btn btn-xs " />
-        </form>
-      </div>
       <p className="text-2xl font-bold">Make a New Post</p>
-      {user.user === name ? (
+      {user ? (
         <form onSubmit={handlePost}>
           <label>
             <input
@@ -78,6 +68,8 @@ const NewPost = () => {
             className="textarea textarea-primary w-full h-96"
             placeholder="Enter Your Text"
             name="body"
+            // value={value}
+            onKeyDown={handleKeyDown}
           ></textarea>
           <input
             type="submit"
@@ -87,7 +79,10 @@ const NewPost = () => {
         </form>
       ) : (
         <p className="text-4xl font-semibold text-center h-96 my-24">
-          Don't Even Try Without Knowing Screat Code
+          Don't Even Try Without{" "}
+          <Link to={"/login"} className="text-blue-500">
+            Login In
+          </Link>
         </p>
       )}
     </div>
