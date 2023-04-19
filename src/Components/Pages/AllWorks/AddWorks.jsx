@@ -42,7 +42,7 @@ const AddWorks = () => {
             Img: imgData.data.url,
             link,
           };
-          fetch(`http://localhost:5000/add-portfolio`, {
+          fetch(`https://portfolio-server-side-naffiziqbal.vercel.app/add-portfolio`, {
             method: "POST",
             headers: {
               "content-type": "application/json",

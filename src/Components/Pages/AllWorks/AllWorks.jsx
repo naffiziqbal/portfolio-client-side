@@ -11,7 +11,7 @@ import { useEffect } from "react";
 const AllWorks = () => {
   const [projects, setProjects] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/works`)
+    fetch(`https://portfolio-server-side-naffiziqbal.vercel.app/works`)
       .then((res) => res.json())
       .then((data) => setProjects(data));
   }, []);
