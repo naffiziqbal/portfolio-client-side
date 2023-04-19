@@ -34,6 +34,9 @@ const Header = () => {
           <Link to={"/allworks"}>All works</Link>
         </li>
         <li>
+          <Link to={"/addworks"}>Add Works</Link>
+        </li>
+        <li>
           <Link to={"/posts"}>Posts</Link>
         </li>
         <li>

@@ -13,15 +13,24 @@ const SignUp = () => {
     const email = form.email.value;
     const pasword = form.password.value;
 
-    createUser(email, pasword).then((result) => {
-      const user = result.user;
-      Swal.fire({
-        icon: "success",
-        title: "Congrats",
-        text: "User Logged in",
-      });
-      navigate("/");
-    });
+    createUser(email, pasword)
+      .then((result) => {
+        const user = result.user;
+        if (user) {
+          Swal.fire({
+            icon: "success",
+            title: "Congrats",
+            text: "User Logged in",
+          })
+        }
+        navigate("/");
+      })
+      .catch((err) =>
+        Swal.fire({
+          icon: "error",
+          text: err.message,
+        })
+      );
   };
   let activeStyle = {
     textDecoration: "underline",
@@ -36,7 +45,7 @@ const SignUp = () => {
               <div className="flex w-full">
                 <div className="grid h-8 flex-grow card rounded-box place-items-center">
                   <NavLink
-                    style={({ isActive }) => 
+                    style={({ isActive }) =>
                       isActive ? activeStyle : undefined
                     }
                     to="/signup"

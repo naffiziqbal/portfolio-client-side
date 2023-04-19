@@ -53,7 +53,7 @@ const NewPost = () => {
 
   return (
     <div className="mx-auto container">
-      <p className="text-2xl font-bold">Make a New Post</p>
+      <p className="text-2xl font-bold">Make a New Post </p>
       {user ? (
         <form onSubmit={handlePost}>
           <label>

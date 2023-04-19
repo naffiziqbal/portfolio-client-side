@@ -9,6 +9,7 @@ import Posts from "../Components/Pages/Posts/Posts";
 import Login from "../Components/UserCredintial/Login";
 import SignUp from "../Components/UserCredintial/SignUp";
 import Main from "../Layout/Main";
+import AddWorks from "../Components/Pages/AllWorks/AddWorks";
 
 const route = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const route = createBrowserRouter([
         element: <AllWorks />,
       },
       {
+        path: "/addworks",
+        element: <AddWorks />,
+      },
+      {
         path: "/posts",
         element: <Posts />,
       },
@@ -43,7 +48,9 @@ const route = createBrowserRouter([
         path: "/post/:id",
         element: <PostDetails />,
         loader: ({ params }) =>
-          fetch(`https://portfolio-server-side-steel.vercel.app/post/${params.id}`),
+          fetch(
+            `https://portfolio-server-side-steel.vercel.app/post/${params.id}`
+          ),
       },
       {
         path: "/newpost",
