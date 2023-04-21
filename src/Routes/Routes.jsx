@@ -10,6 +10,8 @@ import Login from "../Components/UserCredintial/Login";
 import SignUp from "../Components/UserCredintial/SignUp";
 import Main from "../Layout/Main";
 import AddWorks from "../Components/Pages/AllWorks/AddWorks";
+import Admin from "../Components/Admin/Admin";
+import ProtectedRoutes from "../Components/ProtectedRoutes/ProtectedRoutes";
 
 const route = createBrowserRouter([
   {
@@ -43,6 +45,20 @@ const route = createBrowserRouter([
       {
         path: "/posts",
         element: <Posts />,
+      },
+      {
+        path: "/admin",
+        element: (
+          <ProtectedRoutes>
+            <Admin />
+          </ProtectedRoutes>
+        ),
+        children: [
+          {
+            path: "/admin",
+            element: <Admin />,
+          },
+        ],
       },
       {
         path: "/post/:id",

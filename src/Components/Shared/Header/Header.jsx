@@ -41,12 +41,7 @@ const Header = () => {
         </li>
         <li>
           {user ? (
-            <Link>
-              Welcome{" "}
-              <span className="text-blue-500">
-                {user ? user.email : "Visitor"}
-              </span>
-            </Link>
+            <Link to={"/admin"}>Admin</Link>
           ) : (
             <Link to={"/login"}>
               <p>
