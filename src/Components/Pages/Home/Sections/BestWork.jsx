@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useId, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -9,6 +9,7 @@ import "react-photo-view/dist/react-photo-view.css";
 import { Link } from "react-router-dom";
 
 const BestWork = () => {
+  const id = useId();
   const [data, setData] = useState([]);
   useEffect(() => {
     fetch("https://portfolio-works-naffiziqbal.vercel.app/works")
@@ -37,7 +38,7 @@ const BestWork = () => {
         {" "}
         {data.map((data) => (
           <SwiperSlide>
-            <div key={data._id} className="card  bg-base-100 shadow-xl">
+            <div key={id} className="card  bg-base-100 shadow-xl">
               <figure>
                 <PhotoProvider>
                   <PhotoView src={data.Img}>
