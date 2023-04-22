@@ -31,7 +31,7 @@ const Banners = () => {
           </div>
         </div>
         <div className="social_section pt-24">
-          <p className="font-thin text-xl mb-12">Explore More</p>
+          <p className="font-thin text-xl mb-12 text-accent">Explore More</p>
           <a target={"_blank"} href="https://github.com/naffiziqbal">
             <i className="social_icons fa-brands fa-github"></i>
           </a>

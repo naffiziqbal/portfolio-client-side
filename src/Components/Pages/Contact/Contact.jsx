@@ -50,7 +50,7 @@ const Contact = () => {
               <input
                 type="text"
                 name="from_name"
-                placeholder="Nafiz Iqbal"
+                placeholder="Your Name"
                 required
                 className="input input-bordered  w-full "
               />
@@ -78,7 +78,7 @@ const Contact = () => {
               <input
                 type="email"
                 name="from_email"
-                placeholder="Nafiz Iqbal"
+                placeholder="example@gmail.com"
                 required
                 className="input input-bordered  w-full "
               />
@@ -93,7 +93,7 @@ const Contact = () => {
                 rows={10}
                 name="message"
                 className="textarea textarea-bordered w-full"
-                placeholder="I wanna Hire You"
+                placeholder="Some Text"
               ></textarea>
             </label>
           </div>
