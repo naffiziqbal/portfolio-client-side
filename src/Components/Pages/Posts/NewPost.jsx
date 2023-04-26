@@ -6,25 +6,19 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../../Context/UserContext";
 
 const NewPost = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { user } = useContext(AuthContext);
+  const [description, setDescription] = useState("");
 
-  function handleKeyDown(event) {
-    if (event.keyCode === 13) {
-      event.preventDefault();
-      const value = event.target.body.value;
-      setValue(value + "\n");
-    }
-  }
+  const handleInputChange = (e) => {
 
+    setDescription(e.target.value);
+  };
   const handlePost = (e) => {
     e.preventDefault();
     const form = e.target;
     const headline = form.headline.value;
-    const body = form.body.value;
-  
-    const postData = { body, headline };
-    console.log(postData);
+    const postData = { body: description, headline };
 
     fetch("https://portfolio-server-side-steel.vercel.app/post", {
       method: "POST",
@@ -44,12 +38,10 @@ const NewPost = () => {
             timer: 1500,
           });
           form.reset();
-          navigate('/posts')
+          navigate("/posts");
         }
       });
-
   };
-
 
   return (
     <div className="mx-auto container">
@@ -67,9 +59,9 @@ const NewPost = () => {
           <textarea
             className="textarea textarea-primary w-full h-96"
             placeholder="Enter Your Text"
-            name="body"
-            // value={value}
-            onKeyDown={handleKeyDown}
+            name="description"
+            value={description}
+            onChange={handleInputChange}
           ></textarea>
           <input
             type="submit"
