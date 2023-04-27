@@ -11,8 +11,11 @@ const NewPost = () => {
   const [description, setDescription] = useState("");
 
   const handleInputChange = (e) => {
-
     setDescription(e.target.value);
+    // if (e.target.value === "\n") {
+    //   newDes = description.replace(/\n/g, "\\n");
+    //   setDescription(newDes);
+    // }
   };
   const handlePost = (e) => {
     e.preventDefault();
@@ -20,7 +23,7 @@ const NewPost = () => {
     const headline = form.headline.value;
     const postData = { body: description, headline };
 
-    fetch("https://portfolio-server-side-steel.vercel.app/post", {
+    fetch("http://localhost:5000/post", {
       method: "POST",
       headers: {
         "content-type": "application/json",

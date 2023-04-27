@@ -17,9 +17,9 @@ const Post = ({ post }) => {
       </button>
       <Link to={`/post/${_id}`}>
         <p className="font-bold text-2xl">{headline}</p>
-      </Link>`  `
+      </Link>
       <br />
-      <p>{body.slice(0, 100)}</p>
+      <p>{body}</p>
     </div>
   );
 };
