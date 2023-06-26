@@ -12,60 +12,49 @@ const BestWork = () => {
   const id = useId();
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("https://portfolio-works-naffiziqbal.vercel.app/works")
+    fetch("https://portfolio-server-side-naffiziqbal.vercel.app/works")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
 
   return (
     <div className="p-5 container mx-auto">
-      <h3 className="text-4xl font-semibold text-center  text-primary mb-12">
-        My Best Work
-      </h3>
-      <Swiper
-        slidesPerView={1}
-        spaceBetween={30}
-        keyboard={{
-          enabled: true,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Keyboard, Pagination, Navigation]}
-        className="mySwiper"
-      >
-        {" "}
+      <div className="mb-12 uppercase line-through">
+        <h1 className="lg:text-8xl text-6xl font-bold opacity-20  text-center">Works</h1>
+        <hr className="mt-5 border-gray-700" />
+      </div>
+      <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
         {data.map((data) => (
-          <SwiperSlide>
-            <div key={id} className="card  bg-base-100 shadow-xl">
-              <figure>
-                <PhotoProvider>
-                  <PhotoView src={data.Img}>
-                    <img className="max-w-lg" src={data.Img} alt="" />
-                  </PhotoView>
-                </PhotoProvider>
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title">
-                  <a href={data.link} target="_blank" rel="noopener noreferrer">
-                    {data.name}
-                  </a>
-                </h2>
-                <p>{data.description}</p>
-                <div className="card-actions justify-end">
-                  <Link
+          <div
+            key={id}
+            className="card  bg-base-100 shadow-2xl hover:shadow-[#3c83f6] duration-500 h-[500px] overflow-auto"
+          >
+            <figure className=" ">
+              <PhotoProvider>
+                <PhotoView src={data.Img}>
+                  <img className="h-[400px] w-[400px]" src={data.Img} alt="" />
+                </PhotoView>
+              </PhotoProvider>
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title text-primary hover:text-[#3C83F6] duration-500">
+                <a href={data.link} target="_blank" rel="noopener noreferrer">
+                  {data.name}
+                </a>
+              </h2>
+              <p>{data?.description}</p>
+              <div className="card-actions justify-end">
+                {/* <Link
                     to={"/allworks"}
                     className=" bg-primary rounded-full btn btn-xs"
                   >
                     See my All Works
-                  </Link>
-                </div>
+                  </Link> */}
               </div>
             </div>
-          </SwiperSlide>
+          </div>
         ))}
-      </Swiper>
+      </div>
     </div>
   );
 };

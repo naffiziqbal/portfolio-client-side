@@ -32,9 +32,10 @@ const Contact = () => {
   };
   return (
     <div className="container mx-auto" id="contact">
-      <p className="text-4xl text-primary text-center font-semibold">
-        Contact Now
-      </p>
+      <div className="my-12 uppercase line-through">
+        <h1 className="lg:text-8xl md:text-7xl text-5xl font-bold opacity-20  text-center">Contact Now</h1>
+        <hr className="mt-5 border-gray-700" />
+      </div>
       <div className="shadow-2xl my-5 p-5 rounded-lg">
         <form
           ref={form}

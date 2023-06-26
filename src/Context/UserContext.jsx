@@ -10,11 +10,12 @@ import {
 import app from "../firebase.init";
 import { useState } from "react";
 import { useEffect } from "react";
+import excludeVariablesFromRoot from "@mui/material/styles/excludeVariablesFromRoot";
 
 export const AuthContext = createContext();
 export const auth = getAuth(app);
 
-const UserContext = ({ children }) => {
+const UserContext = ({ children }) => { 
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState([]);
 
@@ -46,3 +47,4 @@ const UserContext = ({ children }) => {
 };
 
 export default UserContext;
+
