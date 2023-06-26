@@ -6,7 +6,9 @@ const About = () => {
   return (
     <div className=" container mx-auto p-5">
       <div>
-        <h1 className="text-8xl font-bold opacity-10  text-center">ABOUT</h1>
+        <h1 className="lg:text-8xl md:text-8xl font-bold opacity-10  text-center line-through text-6xl">
+          ABOUT
+        </h1>
         <hr className="mt-5 border-gray-700" />
       </div>
       <div className="flex justify-center items-center mt-12 flex-col">
@@ -33,7 +35,6 @@ const About = () => {
         </div>
       </div>
       {/* <hr /> */}
-
     </div>
   );
 };

@@ -93,8 +93,8 @@ const Header = () => {
                 {menuItems.menuites}
               </ul>
             </div>
-            <Link className="btn btn-ghost normal-case text-xl">
-              Nafiz Iqbal
+            <Link className=" normal-case  text-xl hover:text-primary duration-300" to={'/'}>
+              <span className="text-primary">&lt;</span> Nafiz Iqbal  <span className="text-primary">/&gt;</span>
             </Link>
           </div>
           <div className="navbar-end hidden lg:flex">

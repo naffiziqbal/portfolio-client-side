@@ -36,11 +36,11 @@ const Contact = () => {
         <h1 className="lg:text-8xl md:text-7xl text-5xl font-bold opacity-20  text-center">Contact Now</h1>
         <hr className="mt-5 border-gray-700" />
       </div>
-      <div className="shadow-2xl my-5 p-5 rounded-lg">
+      <div className="my-5 p-5 rounded-lg">
         <form
           ref={form}
           action="#"
-          className=" max-w-lg mx-auto"
+          className=" mx-auto"
           onSubmit={handleForm}
         >
           <div className="form-control ">
